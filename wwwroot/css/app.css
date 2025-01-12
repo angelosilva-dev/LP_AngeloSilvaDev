@@ -28,7 +28,7 @@ html, body {
         font-size: 46pt;
     }
     #hero h6, h5{
-        font-size: 22pt;
+        font-size: 20pt;
         font-weight: 200;
     }
     #hero h5{
@@ -36,25 +36,26 @@ html, body {
     }
 
     #hero #hero-call-box-presentation{
-        padding-top:70px;
+        padding-top:40px;
     }
 
     #hero #hero-call-box {
         border-left: 14px solid #DB3401;
     }
 
-        #hero #hero-call-box p {
-            font-size: 10pt;
+        #hero #hero-call-box p,
+        #about p{
+            font-size: 11pt;
         }
 
     #hero #hero-angelo-silva-dev-img {
-        background: url('../hero/dev-banner.png') no-repeat top;
-        height: 600px;
+        background: url('../img/hero/dev-banner.png') no-repeat top;
+        height: 550px;
     }
 
     #hero-services{
         background-color: black;
-        height: 40vh;
+        height: 60vh;
     }
         #hero-services .box-service-style, .box-service-style-red {
             width: 280px;
@@ -91,6 +92,31 @@ html, body {
                 margin-bottom: 8px;
             }
 
+        #hero-services #hero-services-box{
+            padding: 0px 12px;
+            position: relative;
+            top: -75px;
+        }
+
+/* About styles */
+
+#about, #skills {
+    padding: 50px 0 50px 0;
+}
+#about article li{
+    font-size:10pt;
+}
+
+/* Skills styles */
+#skills{
+    background-color: black;
+}
+
+    #skills h5{
+        font-size: 13pt;
+        font-weight: 500
+    }
+
 /* Globals styles */
 .btn-outline-square-red {
     border: #DB3401 solid 2px;
@@ -101,14 +127,14 @@ html, body {
     color: white;
 }
 
-    .btn-outline-square-red:hover {
-        border-radius: 0px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 10pt;
-        padding: 8px 4rem;
-        color: white;
-        background-color: #DB3401;
-    }
+.btn-outline-square-red:hover {
+    border-radius: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10pt;
+    padding: 8px 4rem;
+    color: white;
+    background-color: #DB3401;
+}
 
 .color-social-midia {
     color: #DB3401 !important;
@@ -118,4 +144,22 @@ html, body {
     color: #902e10 !important;
     font-size: 22px;
 }
+
+.title-section-style {
+    position: relative; /* Necessário para posicionar o elemento pseudo */
+    display: inline-block; /* Faz o elemento ajustar-se ao tamanho do texto */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 50px
+}
+
+    .title-section-style::after {
+        content: ""; /* Cria um elemento visual abaixo */
+        display: block; /* Faz com que seja uma linha visível */
+        width: 65%; /* Define que a largura é metade do texto */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        border-bottom: solid 5px #DB3401; /* Define a borda inferior */
+        margin-top: 15px; /* Espaçamento entre o texto e a borda */
+    }
+
+
 
