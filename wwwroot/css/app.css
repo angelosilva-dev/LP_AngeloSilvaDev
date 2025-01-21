@@ -67,14 +67,14 @@ html, body {
 
         #hero-services .box-service-style {
             background-color: #2e2e2e;
-            border-bottom: 8px solid #DB3401; /* Borda inferior */
-            border-right: 8px solid #DB3401; /* Borda direita */
+            box-shadow: 8px 8px 0px 0px #DB3401;
+            position: relative;
         }
 
         #hero-services .box-service-style-red {
             background-color: #DB3401;
-            border-bottom: 8px solid #2e2e2e; /* Borda inferior */
-            border-right: 8px solid #2e2e2e; /* Borda direita */
+            box-shadow: 8px 8px 0px 0px #2e2e2e;
+            position: relative;
         }
 
         #hero-services .box-service-style p{
@@ -100,7 +100,7 @@ html, body {
 
 /* About styles */
 
-#about, #skills {
+#about, #skills, #portfolio, #testmonials {
     padding: 50px 0 50px 0;
 }
 #about article li{
@@ -113,8 +113,105 @@ html, body {
 }
 
     #skills h5{
-        font-size: 13pt;
-        font-weight: 500
+        font-size: 14pt;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    #skills ul li {
+        font-size:10pt;
+    }
+
+/* Portfolio styles */
+#portfolio .image-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+    #portfolio .image-overlay img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #portfolio .image-overlay:hover img {
+        transform: scale(1.1); /* Zoom na imagem */
+    }
+
+#portfolio .overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Sobreposição escura */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#portfolio .image-overlay:hover .overlay-content {
+    opacity: 1; /* Mostra a sobreposição no hover */
+}
+
+#portfolio .access-btn {
+    background-color: #DB3401;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+    border-radius: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 8px 4rem;
+    color: white;
+}
+
+    #portfolio .access-btn:hover {
+        background: #902e10; /* Altere para a cor desejada */
+    }
+
+
+
+/* Testmonials Styles */
+#testmonials {
+    background-color: black;
+    height: 720px;
+}
+
+    #testmonials #testmonials-content {
+        height: 320px;
+    }
+
+    #testmonials .card-testmonials-style {
+        background-color: #1E1E1E;
+        padding: 20px;
+        width: 44%;
+        box-shadow: 8px 8px 0px 0px #DB3401;
+        border-bottom: 8px solid #DB3401;
+        position: relative;
+    }
+
+    #testmonials #testmonials-content p{
+        font-size: 11pt;
+    }
+
+    #testmonials .carousel-indicators {
+        bottom: -70px; /* Distância do rodapé do carousel */
+    }
+
+    #testmonials .carousel-indicators button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #9b9999; /* Cor padrão */
+    }
+
+    #testmonials .carousel-indicators .active {
+        background-color: #DB3401; /* Cor diferente para o indicador ativo */
     }
 
 /* Globals styles */
@@ -143,6 +240,10 @@ html, body {
 .color-social-midia:hover {
     color: #902e10 !important;
     font-size: 22px;
+}
+
+.color-icon-arrow-list {
+    color: #DB3401
 }
 
 .title-section-style {
