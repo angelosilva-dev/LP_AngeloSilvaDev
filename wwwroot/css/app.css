@@ -16,9 +16,17 @@ html, body {
     color: white !important;
 }
 
-    #menu-site nav.navbar .navbar-nav .nav-link:hover {
-        color: #DB3401 !important;
-    }
+#menu-site .navbar-toggler{
+    border-color: white;
+}
+#menu-site .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+#menu-site nav.navbar .navbar-nav .nav-link:hover {
+    color: #DB3401 !important;
+}
 
 /* Hero Styles */
 #hero{
@@ -49,7 +57,8 @@ html, body {
         }
 
     #hero #hero-angelo-silva-dev-img {
-        background: url('../img/hero/dev-banner.png') no-repeat top;
+        background: url('../img/hero/dev-hero.png') no-repeat top;
+        background-size: cover;
         height: 550px;
     }
 
@@ -99,13 +108,13 @@ html, body {
         }
 
 /* About styles */
-
-#about, #skills, #portfolio, #testmonials {
+#about, #skills, #portfolio, #testmonials, #contact {
     padding: 50px 0 50px 0;
 }
 #about article li{
     font-size:10pt;
 }
+
 
 /* Skills styles */
 #skills{
@@ -214,6 +223,53 @@ html, body {
         background-color: #DB3401; /* Cor diferente para o indicador ativo */
     }
 
+/* Contact styles*/
+#contact .input-style-contact{
+    border-radius: 0px;
+    border: 0;
+    border-bottom: 1px solid white;
+    background-color: #3d3d3d;
+    color:white;
+    
+}
+
+    #contact .input-style-contact::placeholder {
+        color: white;
+        font-size: 11pt
+    }
+
+#contact textarea {
+    height: 160px;
+    
+}
+#contact #contact-icons {
+
+    border-right: 2px solid #3d3d3d;
+}
+#contact #contact-icons .color-social-midia {
+    color: #DB3401 !important;
+    font-size: 28px;
+}
+
+#contact .contact-text-social-midia{
+    font-size: 10pt
+}
+
+#contact .contact-text-social-midia a {
+    text-decoration: none;
+    color: #808080
+}
+
+/* Footer styles */
+#footer-site{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black
+}
+#footer-site p{ 
+    font-size: 11pt;
+}
+
 /* Globals styles */
 .btn-outline-square-red {
     border: #DB3401 solid 2px;
@@ -261,6 +317,317 @@ html, body {
         border-bottom: solid 5px #DB3401; /* Define a borda inferior */
         margin-top: 15px; /* Espaçamento entre o texto e a borda */
     }
+
+
+/* Responsive style */
+
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 32pt; /* Reduz o tamanho do título em telas menores */
+    }
+
+    #hero h6, h5 {
+        font-size: 16pt; /* Ajuste do subtítulo */
+    }
+
+    #hero #hero-call-box-presentation {
+        padding-top: 20px;
+        text-align: center; /* Centraliza o texto */
+    }
+
+    /* Botão final */
+    #hero-services .btn {
+        width: 70%; /* Botão em tela cheia em dispositivos menores */
+        padding: 10px;
+        margin-top: 20px;
+        font-size: 12pt;
+    }
+}
+
+/* Call Box */
+
+@media (max-width: 768px) {
+    #hero #hero-call-box {
+        border-left: none;
+        margin-top: 10px;
+    }
+
+    #hero #hero-social-midial{
+        justify-content: center;
+    }
+}
+
+/* Fontes do Call Box */
+#hero #hero-call-box p,
+#about p {
+    font-size: 11pt;
+}
+
+@media (max-width: 768px) {
+    #hero #hero-call-box p {
+        font-size: 10pt; /* Reduz o tamanho das fontes */
+    }
+}
+
+@media (max-width: 768px) {
+    #hero #hero-angelo-silva-dev-img {
+        height: 560px; /* Diminui a altura para telas menores */
+        margin-top: 10px;
+        border-radius: 8px; /* Para um acabamento mais fluido */
+    }
+}
+
+/* Hero Services */
+#hero-services {
+    background-color: black;
+    height: auto; /* Permite que o conteúdo defina a altura */
+    padding: 40px 0;
+}
+
+    #hero-services .box-service-style,
+    .box-service-style-red {
+        width: 280px;
+        height: 260px;
+        padding: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+@media (max-width: 992px) {
+    #hero-services .box-service-style,
+    .box-service-style-red {
+        width: 240px;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero-services .box-service-style,
+    .box-service-style-red {
+        width: 100%; 
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+/* Cores e sombras dos boxes */
+#hero-services .box-service-style {
+    background-color: #2e2e2e;
+    box-shadow: 8px 8px 0px 0px #DB3401;
+}
+
+#hero-services .box-service-style-red {
+    background-color: #DB3401;
+    box-shadow: 8px 8px 0px 0px #2e2e2e;
+}
+
+/* Fontes dentro dos boxes */
+#hero-services .box-service-style p {
+    font-size: 10pt;
+}
+
+@media (max-width: 768px) {
+    #hero-services .box-service-style p {
+        font-size: 9pt; /* Fontes menores para telas menores */
+    }
+}
+
+#hero-services .box-service-style h6 {
+    font-size: 11pt;
+    margin: 15px 0 15px 0;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    #hero-services .box-service-style h6 {
+        font-size: 10pt;
+    }
+}
+
+/* Ícones dentro dos boxes */
+#hero-services .box-service-style .size-icon-services {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    #hero-services .box-service-style .size-icon-services {
+        font-size: 22px; /* Ícones menores para dispositivos móveis */
+    }
+}
+
+/* Espaçamento entre os serviços */
+#hero-services #hero-services-box {
+    padding: 0px 12px;
+    position: relative;
+    top: -75px;
+}
+
+@media (max-width: 768px) {
+    #hero-services #hero-services-box {
+        top: 0; /* Remove o deslocamento negativo em telas menores */
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #about {
+        padding: 50px 30px; /* Reduz o padding em dispositivos menores */
+    }
+
+        #about article h2 {
+            font-size: 2rem; /* Reduz o tamanho do título */
+        }
+
+        #about article h4 {
+            font-size: 1.25rem;
+            margin-top: 20px;
+        }
+
+        #about article p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        #about article ul li {
+            font-size: 0.85rem; /* Reduz o tamanho dos itens da lista */
+        }
+
+        #about article ul {
+            padding-left: 10px; /* Reduz o padding da lista */
+        }
+}
+
+@media (max-width: 576px) {
+    #about {
+        padding: 50px 20px; /* Ajusta ainda mais o padding */
+    }
+
+        #about article h2 {
+            font-size: 1.8rem; /* Reduz o título principal */
+        }
+
+        #about article h4 {
+            font-size: 1.1rem; /* Ajusta os subtítulos */
+        }
+
+        #about article p {
+            font-size: 0.85rem; /* Texto menor para dispositivos bem pequenos */
+            line-height: 1.6;
+        }
+
+        #about article ul li {
+            font-size: 0.8rem;
+        }
+
+        #about article ul {
+            padding-left: 5px; /* Remove o padding adicional em telas pequenas */
+        }
+}
+
+/* Responsive Skills style */
+@media (max-width: 768px) {
+    #skills h5 {
+        margin-top: 40px
+    }
+}
+
+
+/* Responsive portfolio style */
+@media (max-width: 992px) {
+    #portfolio .col-md-4 {
+        width: 50%; /* Em tablets, exibe 2 colunas */
+    }
+}
+
+@media (max-width: 768px) {
+    #portfolio, #contact{
+        padding: 20px 20px;
+    }
+
+    #portfolio p, #testmonials p, #contact p {
+        font-size: 10pt;
+    }
+
+    #portfolio .col-md-4 {
+        width: 50%; /* Em celulares, exibe 1 por linha */
+    }
+
+    #portfolio .access-btn {
+        font-size: 10pt; /* Ajusta o tamanho do botão */
+        padding: 6px 3rem;
+    }
+
+    #contact h6{
+        text-align: center;
+        margin-top: 20px;
+    }
+        #contact #contact-icons {
+            border:0;
+           
+        }
+}
+
+
+@media (max-width: 768px) {
+    #footer-site .col-md-6 {
+        text-align: center; /* Centraliza o conteúdo */
+    }
+
+    #footer-site .d-flex {
+        justify-content: center !important;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #footer-site img {
+        margin-bottom: 10px; /* Adiciona espaçamento entre a logo e o texto */
+    }
+}
+
+/* Resposive testmonials style */
+@media (max-width: 992px) { /* Tablets e menores */
+    #testmonials .card-testmonials-style {
+        width: 100% !important; /* Ocupa toda a largura */
+        margin-bottom: 20px; /* Espaço entre os cards */
+    }
+
+    #testmonials #testmonials-content {
+        flex-direction: column; /* Empilha os cards */
+        align-items: center; /* Centraliza */
+        height: auto; /* Remove altura fixa */
+    }
+}
+
+@media (max-width: 768px) { /* Celulares */
+    #testmonials {
+        height: auto; /* Remove altura fixa */
+        padding: 50px 10px 50px 10px; /* Espaço extra para os indicadores */
+    }
+
+        #testmonials .carousel-indicators {
+            bottom: -50px; /* Ajusta espaçamento dos indicadores */
+        }
+
+        #testmonials .card-testmonials-style {
+            padding:20px;
+            border: 0;
+            box-shadow: none;
+        }
+
+            #testmonials .carousel-indicators button {
+                width: 10px;
+                height: 10px;
+            }
+
+        #testmonials #testmonials-content p {
+            font-size: 9pt;
+        }
+
+}
+
+
 
 
 
