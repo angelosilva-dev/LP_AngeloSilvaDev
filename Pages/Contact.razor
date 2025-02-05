@@ -1,18 +1,28 @@
-﻿<section id="contact" class="container">
+﻿@inject IJSRuntime JS
+
+
+<section id="contact" class="container">
     <div class="text-center">
         <h2 class="title-section-style  text-center">Contato</h2>
     </div>
     <div class="row">
         <div class="col-md-6">
             <p>Deixe sua mensagem que em breve entrarei em contato.</p>
-            <form id="frm-contact">
-                <input type="text" class="form-control  input-style-contact mb-4" placeholder="Digite seu nome" />
-                <input type="email" class="form-control input-style-contact mb-4" placeholder="Digite seu e-mail" />
-                <textarea class="form-control input-style-contact mb-4" placeholder="Digite sua mensagem" />
-                <div class="d-flex justify-content-end">
-                    <input type="submit" class="btn btn-sm btn-outline-square-red" value="Enviar" />
-                </div>
-            </form>
+            @if (isSent)
+            {
+                <p class="text-success">Mensagem enviada com sucesso!</p>
+            }else{
+                <EditForm Model="contactForm" OnValidSubmit="SendEmail">
+                    <DataAnnotationsValidator />
+                    <input @bind="contactForm.Name" type="text" class="form-control  input-style-contact mb-4" placeholder="Digite seu nome" />
+                    <input @bind="contactForm.Email" type="email" class="form-control input-style-contact mb-4" placeholder="Digite seu e-mail" />
+                    <input @bind="contactForm.Celphone" type="tel" class="form-control input-style-contact mb-4" placeholder="Digite seu celular" />
+                    <textarea @bind="contactForm.Message" class="form-control input-style-contact mb-4" placeholder="Digite sua mensagem" />
+                    <div class="d-flex justify-content-end">
+                        <input type="submit" class="btn btn-sm btn-outline-square-red" value="Enviar" />
+                    </div>
+                </EditForm>
+            }
         </div>
         <div class="col-md-6  p-3">
             <h6>Informações de contato</h6>
@@ -42,7 +52,7 @@
                     
                     <div class="row  contact-text-social-midia">
                         <span>Email</span>
-                        <a href="#">angelo_csilva@outlook.com</a>
+                        <a href="#">angelosilvaweb@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -51,5 +61,28 @@
 </section>
 
 @code {
+    private ContactFormModel contactForm = new();
+    private bool isSent = false;
 
+    private async Task SendEmail()
+    {
+        var templateParams = new
+        {
+            from_name = contactForm.Name,
+            from_email = contactForm.Email,
+            cellPhone = contactForm.Celphone,
+            message = contactForm.Message
+        };
+
+        await JS.InvokeVoidAsync("sendEmail", "service_qtqyh5r", "template_35ww93r", "GUUqx4XFK2KzxIDFi", templateParams);
+        isSent = true;
+    }
+
+    public class ContactFormModel
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Celphone { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+    }
 }
